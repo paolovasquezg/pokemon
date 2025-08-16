@@ -10,7 +10,7 @@ type TemplateProps = {
 const Template = ({ children, left, right }: TemplateProps) => {
   const navigate = useNavigate();
   return (
-    <div className="p-4 h-screen flex justify-center items-center">
+    <div className="p-4 h-screen flex justify-center items-center overflow-auto">
       <div className="flex flex-row items-center justify-between w-full gap-12">
         <button
           disabled={!left}

@@ -1,5 +1,5 @@
 import {useState } from 'react';
-import {type_colors} from "../components/constants"
+import {type_data} from "../components/constants"
 import { First_Mayus } from '../components/functions';
 import pokeball from '../assets/pokeball.svg';
 
@@ -11,7 +11,7 @@ const Pokemon = () => {
   const [title, settitle] = useState("");
   const [loading, setloading] = useState(false);
   const [error, seterror] = useState(false);
-  const [types, settypes] = useState([])
+  const [types, settypes] = useState<string[]>([])
 
     const get_pokemon = async (pokemon: string) => {
       setsvg("")
@@ -35,40 +35,39 @@ const Pokemon = () => {
   };
 
   return (
-      <div className="flex flex-col justify-evenly bg-gray-500 h-150 w-150 rounded-lg border-4 border-black">
-        <p className="font-mono font-bold text-3xl text-center text-bol">Pokémon</p>
-
+  <div className="flex flex-col justify-evenly bg-gray-500 rounded-lg border-4 border-black p-4 sm:p-8 md:p-10 w-full max-w-md mx-auto min-h-[24rem]">
+        <p className="font-mono font-bold text-5xl text-center text-yellow-400 text-bol" style={{ WebkitTextStroke: '1px #3b82f6' }}>Pokémon</p>
           {svg == "" ? (
             <>
-              <img src={pokeball} alt="Pokeball" className={`mt-10 mx-auto h-50 w-50 ${loading ? "animate-spin" : ""}`} />
+              <img src={pokeball} alt="Pokeball" className={`mt-8 mx-auto h-32 w-32 sm:h-40 sm:w-40 ${loading ? "animate-spin" : ""}`} />
               {error && <p className='text-center font-mono text-white'>Pokemon not found</p>}
             </>
           ) : (
             <>
               <p className='text-center font-mono'>{title}</p>
-              <img src={svg} alt="Pokemon" className={`mt-10 mx-auto h-80 w-80`}/>
-              <div className='flex flex-row justify-center gap-x-2'>
+              <img src={svg} alt="Pokemon" className="mt-8 mx-auto h-40 w-40 sm:h-56 sm:w-56 md:h-80 md:w-80" />
+              <div className='flex flex-wrap justify-center gap-2 mt-4'>
               {types.map((type) => 
-                <p style={{backgroundColor: type_colors[type]}} className="text-white font-mono rounded p-2" key={type}>{First_Mayus(type)}</p>
+                <p style={{backgroundColor: type_data[type as keyof typeof type_data].color}} className="text-white font-mono rounded p-2" key={type}>{First_Mayus(type)}</p>
               )}
               </div>
             </> 
           )}
           
-          <div className='flex flex-row justify-center gap-x-4'>
-          <input
-            type="text"
-            value={pokemon}
-            placeholder="Enter the Pokémon"
-            title="Pokémon name"
-            onChange={e => setpokemon(e.target.value)}
-            className='font-mono bg-white rounded-sm block h-10 mt-10 p-2'/>
-          <button
-            onClick={() => get_pokemon(pokemon)}
-            title="Search Pokémon"
-            className="font-mono bg-blue-500 hovered:bg-blue-600 text-white rounded-sm h-10 mt-10 px-4">
-            Search
-          </button>
+          <div className='flex flex-col sm:flex-row justify-center gap-4 mt-8'>
+            <input
+              type="text"
+              value={pokemon}
+              placeholder="Enter the Pokémon"
+              title="Pokémon name"
+              onChange={e => setpokemon(e.target.value)}
+              className='font-mono bg-white rounded-sm block h-10 p-2 w-full sm:w-48'/>
+            <button
+              onClick={() => get_pokemon(pokemon)}
+              title="Search Pokémon"
+              className="font-mono bg-blue-500 hover:bg-blue-600 text-white rounded-sm h-10 px-4 border border-yellow-500 w-full sm:w-auto">
+              Search
+            </button>
           </div>
 
       </div>
