@@ -1,1 +1,2 @@
-# Pokemon Shortcuts
+# Pokémon Shortcuts
+Aplication for pokémon information
