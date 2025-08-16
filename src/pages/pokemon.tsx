@@ -2,6 +2,7 @@ import {useState } from 'react';
 import {type_data} from "../components/constants"
 import { First_Mayus } from '../components/functions';
 import pokeball from '../assets/pokeball.svg';
+import ToBegin from '../components/visual';
 
 
 const Pokemon = () => {
@@ -35,7 +36,13 @@ const Pokemon = () => {
   };
 
   return (
-  <div className="flex flex-col justify-evenly bg-gray-500 rounded-lg border-4 border-black p-4 sm:p-8 md:p-10 w-full max-w-md mx-auto min-h-[24rem]">
+  
+  <div className="flex flex-col justify-evenly bg-gray-500 rounded-lg border-4 border-white p-4 sm:p-8 md:p-10 w-full max-w-md mx-auto min-h-[24rem]">
+
+          <div className='absolute top-0 left-0'>
+            <ToBegin/>
+          </div>
+
         <p className="font-mono font-bold text-5xl text-center text-yellow-400 text-bol" style={{ WebkitTextStroke: '1px #3b82f6' }}>Pokémon</p>
           {svg == "" ? (
             <>

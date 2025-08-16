@@ -15,7 +15,7 @@ const Template = ({ children, left, right }: TemplateProps) => {
         <button
           disabled={!left}
           onClick={() => left && navigate(left)}
-          className={`transition-all duration-200 focus:outline-none rounded-full p-2 ${left ? 'hover:bg-red-100 active:scale-90 focus:ring-4 focus:ring-red-300' : 'opacity-50 cursor-not-allowed'}`}
+          className={`transition-all duration-200 focus:outline-none rounded-full p-2 ${left ? 'hover:bg-blue-100 active:scale-90 focus:ring-4 focus:ring-blue-300' : 'opacity-50 cursor-not-allowed'}`}
           title="Go left"
           aria-label="Go left"
         >
@@ -28,7 +28,7 @@ const Template = ({ children, left, right }: TemplateProps) => {
         <button
           disabled={!right}
           onClick={() => right && navigate(right)}
-          className={`transition-all duration-200 focus:outline-none rounded-full p-2 ${right ? 'hover:bg-red-100 active:scale-90 focus:ring-4 focus:ring-red-300' : 'opacity-50 cursor-not-allowed'}`}
+          className={`transition-all duration-200 focus:outline-none rounded-full p-2 ${right ? 'hover:bg-blue-100 active:scale-90 focus:ring-4 focus:ring-blue-300' : 'opacity-50 cursor-not-allowed'}`}
           title="Go right"
           aria-label="Go right"
         >
