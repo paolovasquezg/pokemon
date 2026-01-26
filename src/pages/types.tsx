@@ -46,22 +46,22 @@ const Types = () => {
     };
 
   return (
-  <div className="flex flex-col bg-gray-500 rounded-lg border-4 border-white p-4 sm:p-8 md:p-10 w-full max-w-3xl mx-auto max-h-[85vh] gap-6 sm:mt-0">
+  <div className="flex flex-col bg-gray-500 rounded-lg border-4 border-white p-4 sm:p-8 md:p-10 w-full max-w-3xl mx-auto max-h-[90vh] gap-6 sm:mt-0">
     <div className='absolute top-0 left-0'>
         <ToBegin/>
     </div>
         <p className="font-mono font-bold text-6xl text-center text-yellow-400 text-bold mt-5" style={{ WebkitTextStroke: '1px #3b82f6' }}>Types</p>
 
         {info ? (
-          <div className="flex flex-col min-[1200px]:flex-row gap-8 mt-10">
+          <div className="flex flex-col gap-8 mt-10">
             <div className="flex flex-col items-center gap-4 -mb-2">
-              <div key={index} className={`rounded-full p-4 flex items-center justify-center w-40 h-40 sm:w-56 sm:h-56 md:w-70 md:h-70 ${loading ? "animate-spin" : ""}`} style={{ backgroundColor: type_data[index as keyof typeof type_data].color }}>
+              <div className={`rounded-full p-4 flex flex-col items-center justify-center w-40 h-40 sm:w-56 sm:h-56 md:w-70 md:h-70 ${loading ? "animate-spin" : ""}`} style={{ backgroundColor: type_data[index as keyof typeof type_data].color }}>
                 <img src={type_data[index as keyof typeof type_data].src} alt={index} className="w-24 h-24 sm:w-32 sm:h-32 md:w-40 md:h-40" />
               </div>
               <p className="text-white text-center font-mono text-xl rounded p-2" key={index}>{First_Mayus(index)}</p>
             </div>
 
-            <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6 ml-0 md:ml-5 mt-0 md:mt-10 w-full">
+            <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6 ml-0 md:ml-5 mt-0 md:mt-10 w-full max-h-[36vh] sm:max-h-[20vh] max-[800px]:overflow-y-auto">
               <div>
                 <p className="text-blue-300 font-bold text-lg mb-2">Double Damage From</p>
                 {doubleDamageFrom.length ? doubleDamageFrom.map(t => (
