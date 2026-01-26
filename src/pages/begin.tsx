@@ -5,7 +5,7 @@ const Begin = () => {
     const navigate = useNavigate();
 
     return (
-        <div className="flex flex-col items-center justify-center min-h-screen">
+        <div className="flex flex-col items-center justify-center min-h-screen px-10 py-2">
             <div className="flex flex-col items-center justify-center bg-gray-600 rounded-3xl border-4 border-yellow-400 shadow-2xl p-10 w-full max-w-lg">
                 <img src="/logo.svg" alt="Pokémon Logo" className="w-40 h-40 mb-6" />
                     <h1 className="text-5xl font-bold text-center text-yellow-400 mb-4 font-mono" style={{ WebkitTextStroke: '2px #3b82f6' }}>Pokémon Shortcuts</h1>

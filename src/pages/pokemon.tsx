@@ -37,22 +37,24 @@ const Pokemon = () => {
 
   return (
   
-  <div className="flex flex-col justify-evenly bg-gray-500 rounded-lg border-4 border-white p-4 sm:p-8 md:p-10 w-full max-w-md mx-auto min-h-[24rem]">
+  <div className="flex flex-col justify-evenly bg-gray-500 rounded-lg border-4 border-white mx-auto min-h-[24rem] px-8 py-10 md:px-20 md:py-10">
 
           <div className='absolute top-0 left-0'>
             <ToBegin/>
           </div>
 
-        <p className="font-mono font-bold text-5xl text-center text-yellow-400 text-bol" style={{ WebkitTextStroke: '1px #3b82f6' }}>Pokémon</p>
+        <p className="font-mono font-bold text-6xl text-center text-yellow-400 text-bold" style={{ WebkitTextStroke: '1px #3b82f6' }}>Pokémon</p>
           {svg == "" ? (
             <>
-              <img src={pokeball} alt="Pokeball" className={`mt-8 mx-auto h-32 w-32 sm:h-40 sm:w-40 ${loading ? "animate-spin" : ""}`} />
-              {error && <p className='text-center font-mono text-white'>Pokemon not found</p>}
+              <div className='mb-4 mt-10'>
+              <img src={pokeball} alt="Pokeball" className={`mx-auto h-50 w-50 ${loading ? "animate-spin" : ""}`} />
+              {error && <p className='text-center font-mono text-white mt-4'>Pokemon not found</p>}
+              </div>
             </>
           ) : (
             <>
               <p className='text-center font-mono'>{title}</p>
-              <img src={svg} alt="Pokemon" className="mt-8 mx-auto h-40 w-40 sm:h-56 sm:w-56 md:h-80 md:w-80" />
+              <img src={svg} alt="Pokemon" className="mt-8 mx-auto h-80 w-80" />
               <div className='flex flex-wrap justify-center gap-2 mt-4'>
               {types.map((type) => 
                 <p style={{backgroundColor: type_data[type as keyof typeof type_data].color}} className="text-white font-mono rounded p-2" key={type}>{First_Mayus(type)}</p>
@@ -68,11 +70,11 @@ const Pokemon = () => {
               placeholder="Enter the Pokémon"
               title="Pokémon name"
               onChange={e => setpokemon(e.target.value)}
-              className='font-mono bg-white rounded-sm block h-10 p-2 w-full sm:w-48'/>
+              className='font-mono bg-white rounded-sm block h-10 p-2 w-full'/>
             <button
               onClick={() => get_pokemon(pokemon)}
               title="Search Pokémon"
-              className="font-mono bg-blue-500 hover:bg-blue-600 text-white rounded-sm h-10 px-4 border border-yellow-500 w-full sm:w-auto">
+              className="font-mono bg-blue-500 hover:bg-blue-600 text-white rounded-sm h-10 px-4 border border-yellow-500">
               Search
             </button>
           </div>
